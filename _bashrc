@@ -138,8 +138,6 @@ if [ "$venwrap" != "" ]; then
     source $venwrap
 fi
 
-alias vim="emacs"
-
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
 
@@ -157,8 +155,6 @@ parse_svn_repository_root() {
   svn info 2>/dev/null | sed -ne 's#^Repository Root: ##p'
 }
 set -o vi
-export EDITOR="emacs"
-export GIT_EDITOR="emacs"
 
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
