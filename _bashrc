@@ -159,7 +159,6 @@ set -o vi
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
 
-
 # /etc/profile.d/complete-hosts.sh
 # Autocomplete Hostnames for SSH etc.
 # by Jean-Sebastien Morisset (http://surniaulula.com/)
@@ -180,3 +179,4 @@ _complete_hosts () {
 
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
+

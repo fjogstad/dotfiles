@@ -22,3 +22,6 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+PATH="/home/sfj/src/qa/trunk/testTNG:$PATH"
+export PYTHONPATH="/home/sfj/src/qa/trunk/testTNG/testTNG:$PYTHONPATH"
