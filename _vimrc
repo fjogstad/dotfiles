@@ -1,4 +1,4 @@
-" https://github.com/sontek/dotfiles/
+" https://github.com/fjogstad/dotfiles/
 " ==========================================================
 " Dependencies - Libraries/Applications outside of vim
 " ==========================================================
@@ -307,3 +307,5 @@ endif
 if exists("&colorcolumn")
    set colorcolumn=79
 endif
+
+map <F11> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
