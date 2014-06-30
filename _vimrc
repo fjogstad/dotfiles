@@ -83,7 +83,7 @@ nmap <silent><Leader>tf <Esc>:Pytest file<CR>
 nmap <silent><Leader>tc <Esc>:Pytest class<CR>
 nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap<silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
 " Run django tests
@@ -116,7 +116,7 @@ map <leader>f :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
 
 " Ack searching
-nmap <leader>a <Esc>:Ack!
+map <leader>a <Esc>:Ack!
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -137,6 +137,7 @@ call pathogen#helptags()
 " ==========================================================
 " Basic Settings
 " ==========================================================
+" set t_Co=256
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
@@ -239,7 +240,8 @@ if has("gui_running")
     set guioptions-=T
 endif
 
-colorscheme molokai
+" let g:solarized_termcolors=256
+colorscheme solarized
 
 " Paste from clipboard
 map <leader>p "+p
@@ -308,4 +310,4 @@ if exists("&colorcolumn")
    set colorcolumn=79
 endif
 
-map <F11> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
