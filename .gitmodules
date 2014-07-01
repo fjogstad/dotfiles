@@ -64,3 +64,6 @@
 [submodule "_vim/bundle/ctrlp"]
 	path = _vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "_vim/bundle/python-syntax"]
+	path = _vim/bundle/python-syntax
+	url = https://github.com/hdima/python-syntax.git

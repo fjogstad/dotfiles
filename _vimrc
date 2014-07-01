@@ -241,6 +241,7 @@ if has("gui_running")
 endif
 
 " let g:solarized_termcolors=256
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 colorscheme solarized
 
 " Paste from clipboard
