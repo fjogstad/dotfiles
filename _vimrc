@@ -1,11 +1,10 @@
-" https://github.com/sontek/dotfiles/
+" https://github.com/fjogstad/dotfiles/
 " ==========================================================
 " Dependencies - Libraries/Applications outside of vim
 " ==========================================================
 " Pep8 - http://pypi.python.org/pypi/pep8
 " Pyflakes
 " Ack
-" Rake & Ruby for command-t
 " nose, django-nose
 
 " ==========================================================
@@ -84,7 +83,7 @@ nmap <silent><Leader>tf <Esc>:Pytest file<CR>
 nmap <silent><Leader>tc <Esc>:Pytest class<CR>
 nmap <silent><Leader>tm <Esc>:Pytest method<CR>
 nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap<silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
 " Run django tests
@@ -113,10 +112,11 @@ imap <C-W> <C-O><C-W>
 " Open NerdTree
 map <leader>n :NERDTreeToggle<CR>
 
-" Run command-t file search
-map <leader>f :CommandT<CR>
+map <leader>f :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+
 " Ack searching
-nmap <leader>a <Esc>:Ack!
+map <leader>a <Esc>:Ack!
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -137,6 +137,7 @@ call pathogen#helptags()
 " ==========================================================
 " Basic Settings
 " ==========================================================
+" set t_Co=256
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
@@ -221,7 +222,7 @@ set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 " displays tabs with :set list & displays when a line runs off-screen
 set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
-set list
+"set list
 
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
@@ -232,15 +233,16 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme desert
     " Remove menu bar
     set guioptions-=m
 
     " Remove toolbar
     set guioptions-=T
-else
-    colorscheme torte
 endif
+
+" let g:solarized_termcolors=256
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+colorscheme solarized
 
 " Paste from clipboard
 map <leader>p "+p
@@ -279,6 +281,7 @@ autocmd FileType html,xhtml,xml,css setlocal expandtab shiftwidth=2 tabstop=2 so
 "au BufRead *.py compiler nose
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType python setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au FileType coffee setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 " Don't let pyflakes use the quickfix window
 let g:pyflakes_use_quickfix = 0
@@ -304,4 +307,8 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
 
-set colorcolumn=79
+if exists("&colorcolumn")
+   set colorcolumn=79
+endif
+
+map <F10> :let &background = ( &background == "dark"? "light" : "dark" )<CR>
