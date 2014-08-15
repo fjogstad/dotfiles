@@ -138,6 +138,9 @@ if [ "$venwrap" != "" ]; then
     source $venwrap
 fi
 
+# for virtaulenv
+alias sv="source venv/bin/activate"
+
 PYTHONSTARTUP=~/.pythonrc.py
 export PYTHONSTARTUP
 
