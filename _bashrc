@@ -183,3 +183,10 @@ _complete_hosts () {
 complete -F _complete_hosts ssh
 complete -F _complete_hosts host
 
+export ORACLE_HOME=/opt/instantclient_12_2
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
+
+
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
