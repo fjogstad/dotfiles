@@ -116,6 +116,8 @@ Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'iCyMind/NeoSolarized'
+Plug 'peterhoeg/vim-qml'
+
 
 " Jedi
 let g:jedi#force_py_version=3
